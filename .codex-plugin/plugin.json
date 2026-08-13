@@ -1,0 +1,40 @@
+{
+  "name": "asu-resume-skills",
+  "version": "0.1.0",
+  "description": "阿酥式高密度技术履历生成与证据优先简历审计。",
+  "author": {
+    "name": "Claycui828",
+    "url": "https://github.com/Claycui828"
+  },
+  "homepage": "https://github.com/Claycui828/ASu-resume-skills",
+  "repository": "https://github.com/Claycui828/ASu-resume-skills",
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "audit",
+    "career",
+    "chinese",
+    "asu",
+    "agent"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "ASu Resume Skills",
+    "shortDescription": "生成阿酥式高密度履历，并逐条审计 Owner、0→1、Scope 与指标",
+    "longDescription": "一个负责把真实经历做成术语密集、Owner/0→1/大 Scope 的中文技术履历，另一个负责把同一份简历拆成原子主张并生成证据审计报告。",
+    "developerName": "Claycui828",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Claycui828/ASu-resume-skills",
+    "defaultPrompt": [
+      "用 $asu-resume-skill 把我的真实经历做成阿酥式高密度技术履历。",
+      "用 $asu-resume-audit-skill 审计这份简历里的 Owner、0→1、Scope、指标和学校 Title。"
+    ],
+    "brandColor": "#245579",
+    "composerIcon": "./assets/asu-circle.png",
+    "logo": "./assets/asu-circle.png"
+  }
+}

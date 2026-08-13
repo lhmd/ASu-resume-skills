@@ -1,0 +1,107 @@
+# 审计报告数据格式
+
+渲染器接收 UTF-8 JSON，未知字段会被忽略。
+
+```json
+{
+  "metadata": {
+    "title": "简历主张真实性审计",
+    "subject": "公开资料对象或匿名候选人",
+    "generated_at": "2026-08-13T12:00:00+08:00",
+    "scope": "公开来源简历主张审计",
+    "analyst": "Codex",
+    "disclaimer": "结论描述现有证据，不评价人格，也不构成法律认定。"
+  },
+  "summary": {
+    "conclusion": "一段校准后的总括结论。",
+    "highest_risk": ["C-001", "C-004"],
+    "limitations": ["无法取得内部雇佣记录"]
+  },
+  "sources": [
+    {
+      "id": "S-001",
+      "title": "官方项目 README",
+      "url": "https://example.com",
+      "type": "official_record",
+      "publisher": "项目组织",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "同期公开记录"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-001",
+      "category": "open_source_role",
+      "resume_text": "简历中的短句原文",
+      "normalized_claim": "被核验的原子化命题",
+      "status": "partially_corroborated",
+      "risk": "high",
+      "confidence": "high",
+      "evidence_for": ["S-002"],
+      "evidence_against": ["S-001"],
+      "analysis": "说明真实事实锚点、扩大部分与最终结论。",
+      "verification_steps": ["要求提供正式 Maintainer 任命记录"]
+    }
+  ],
+  "patterns": [
+    {
+      "name": "角色升格",
+      "description": "Contributor 活动被描述为核心作者身份。",
+      "signals": ["核心作者措辞", "已合并工件有限"],
+      "claim_ids": ["C-001"],
+      "counter_evidence": "存在一个有意义的已合并 PR。",
+      "confidence": "medium"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-03-11",
+      "title": "PR 合并",
+      "detail": "一个有明确边界的前端修复被合并。",
+      "source_ids": ["S-003"]
+    }
+  ],
+  "next_steps": [
+    "要求提供声称子系统对应的设计文档与代码所有权记录。"
+  ]
+}
+```
+
+## 必填字段
+
+- `metadata.title`、`metadata.subject`、`metadata.generated_at`；
+- 至少一个 `source`；
+- 至少一个 `claim`；
+- 每条 Claim 必须包含 `id`、`normalized_claim`、`status`、`risk`、`confidence`、`analysis`；
+- 所有引用的 Source ID 必须存在；
+- Pattern 中引用的 Claim ID 必须存在。
+
+允许的状态：
+
+```text
+corroborated
+partially_corroborated
+contradicted
+unsupported
+unverifiable
+```
+
+允许的风险：
+
+```text
+low
+medium
+high
+critical
+```
+
+允许的置信度：
+
+```text
+low
+medium
+high
+```
+
+字段标识保持英文，所有用户可见内容使用中文。

@@ -1,0 +1,8 @@
+interface:
+  display_name: "ASU 式技术履历"
+  short_description: "基于真实经历生成专业名词高密度的小红书技术履历与 HTML/PDF"
+  brand_color: "#245579"
+  default_prompt: "使用 $asu-resume-skill 基于我的真实经历生成一份术语密集的阿酥式中文技术履历：查学校官方 Title，并把可证明的项目写成模块级 Owner、0→1 和大 Scope。"
+
+policy:
+  allow_implicit_invocation: true

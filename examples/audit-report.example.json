@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "title": "匿名技术履历证据审计",
+    "subject": "林知序（公开演示）",
+    "generated_at": "2026-08-13T12:00:00+08:00",
+    "scope": "学校 Title、项目角色、0→1 范围与指标口径",
+    "analyst": "asu-resume-audit-skill",
+    "disclaimer": "本报告只说明演示材料中的证据关系，不评价人格，也不构成法律认定。"
+  },
+  "summary": {
+    "conclusion": "示例履历对开源角色的描述与公开记录一致；Research Agent 的模块级 Owner 有内部材料支持，但现有公开证据不足以外推为整个 Agent 平台负责人；指标需要保留评测集和时间窗口。",
+    "highest_risk": [
+      "C-002"
+    ],
+    "limitations": [
+      "演示报告不包含真实公司的代码所有权、绩效系统或人事记录。"
+    ]
+  },
+  "sources": [
+    {
+      "id": "S-001",
+      "title": "匿名候选人项目设计材料",
+      "url": "https://example.com/research-agent-design",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持模块边界、接口职责与 0→1 时间线，无法独立证明公司级角色。"
+    },
+    {
+      "id": "S-002",
+      "title": "open-eval-lab 合并记录",
+      "url": "https://github.com/example-agent/open-eval-lab/pulls?q=is%3Apr+is%3Amerged",
+      "type": "official_record",
+      "publisher": "GitHub 项目仓库",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "显示 2 个已合并 PR，不显示 Maintainer 或 Core Author 任命。"
+    },
+    {
+      "id": "S-003",
+      "title": "Research Agent 固定回归集评测表",
+      "url": "https://example.com/research-agent-eval",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "记录 300 条样本、评测时间窗口和基线/结果值。"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C-001",
+      "category": "open_source_role",
+      "resume_text": "open-eval-lab Contributor，合入 2 个 PR。",
+      "normalized_claim": "候选人在该仓库以 Contributor 身份合入 2 个 PR。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "high",
+      "evidence_for": [
+        "S-002"
+      ],
+      "evidence_against": [],
+      "analysis": "公开合并记录支持贡献数量；履历没有把 Contributor 升格为 Maintainer 或核心作者。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-002",
+      "category": "project_role",
+      "resume_text": "Research Agent 检索编排模块 Owner，从 0→1 设计四阶段链路。",
+      "normalized_claim": "候选人独立或主要负责 Research Agent 的检索编排模块，并从无到有建立该模块。",
+      "status": "partially_corroborated",
+      "risk": "high",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-001"
+      ],
+      "evidence_against": [],
+      "analysis": "设计材料支持检索编排模块的接口与交付责任；尚无证据支持把范围扩大到完整 Research Agent 或公司级 Agent 平台。",
+      "verification_steps": [
+        "补充代码所有权、评审记录与模块责任人列表。",
+        "在履历中持续保留“检索编排模块”范围限定。"
+      ]
+    },
+    {
+      "id": "C-003",
+      "category": "metric",
+      "resume_text": "证据覆盖率从 71.0% 提升至 82.3%。",
+      "normalized_claim": "在 2026-06 固定 300 条回归集上，证据覆盖率由 71.0% 提升至 82.3%。",
+      "status": "corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-003"
+      ],
+      "evidence_against": [],
+      "analysis": "评测表支持数值、样本量与时间窗口；由于来源是候选人提供的内部材料，公开读者无法独立复算。",
+      "verification_steps": [
+        "保留评测集版本、计算脚本和原始结果快照。"
+      ]
+    }
+  ],
+  "patterns": [
+    {
+      "name": "Scope 外扩风险",
+      "description": "模块级 Owner 若省略限定词，容易被理解为完整产品或平台 Owner。",
+      "signals": [
+        "Owner 强角色词",
+        "项目名称大于证据覆盖的模块边界"
+      ],
+      "claim_ids": [
+        "C-002"
+      ],
+      "counter_evidence": "原句明确保留了“检索编排模块”限定，因此当前属于可控风险而非直接矛盾。",
+      "confidence": "medium"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2026-06",
+      "title": "固定回归集评测",
+      "detail": "在 300 条样本上记录证据覆盖率和平均检索轮次。",
+      "source_ids": [
+        "S-003"
+      ]
+    }
+  ],
+  "next_steps": [
+    "公开版本保留模块边界，不使用平台级 Owner 表述。",
+    "对指标附评测集规模、时间窗口和计算口径。",
+    "开源角色继续使用仓库公开可证实的 Contributor。"
+  ]
+}

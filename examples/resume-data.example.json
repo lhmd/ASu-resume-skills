@@ -1,0 +1,129 @@
+{
+  "mode": "source_grounded",
+  "source_title": "匿名候选人经历材料（公开演示）",
+  "profile": {
+    "name": "林知序（示例）",
+    "headline": "LLM 应用算法｜Agent Infrastructure｜Evaluation",
+    "location": "中国 · 上海",
+    "contacts": [
+      {
+        "label": "GitHub",
+        "value": "example-agent",
+        "url": "https://github.com/example-agent"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "南方理工大学",
+      "program": "省部共建高校｜卓越工程师教育培养计划",
+      "degree": "计算机科学与技术 · 工学学士",
+      "degree_awarder": "南方理工大学",
+      "dates": "2021.09 - 2025.06",
+      "bullets": [
+        {
+          "text": "学校 Title 仅采用学校官网与教育主管部门公开表述，不把校际合作写成学位归属。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 学校官网与教育主管部门页面"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "星桥科技",
+      "team": "智能平台 · Agent 算法与基础设施",
+      "dates": "2025.07 - 至今",
+      "brand": "blue",
+      "tags": [
+        "Multi-Agent",
+        "Context Engineering",
+        "Evaluation"
+      ],
+      "projects": [
+        {
+          "name": "Research Agent",
+          "subtitle": "检索编排模块 Owner｜0→1 策略链路｜评测闭环",
+          "background": [
+            {
+              "text": "面向多跳研究任务，原链路存在检索轮次固定、证据覆盖不足和失败定位成本高的问题。",
+              "verification": "user_attested",
+              "source_note": "匿名候选人经历材料 / Research Agent 章节"
+            }
+          ],
+          "impact": [
+            {
+              "text": "在固定 300 条回归集上，将证据覆盖率从 71.0% 提升至 82.3%，平均检索轮次从 5.4 降至 4.1。",
+              "verification": "source_grounded",
+              "source_note": "匿名候选人经历材料 / 2026-06 离线评测表",
+              "metric": {
+                "baseline": 71.0,
+                "result": 82.3,
+                "unit": "%",
+                "window": "2026-06 固定 300 条回归集"
+              }
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "作为检索编排模块 Owner，从 0→1 设计 Query Planning、并行 Search、Evidence Rerank 与 Citation Check 四阶段链路；负责接口协议、失败分型、灰度策略和回归门禁。",
+              "verification": "user_attested",
+              "source_note": "匿名候选人经历材料 / 设计文档与代码所有权说明"
+            },
+            {
+              "text": "将单 Agent 串行执行演进为 Planner / Searcher / Verifier 协作拓扑，并以 trace schema 串联运行时观测、离线回放与 Rubric Eval。",
+              "verification": "source_grounded",
+              "source_note": "匿名候选人经历材料 / 架构图与评测说明"
+            }
+          ],
+          "keywords": [
+            "ReAct",
+            "Query Planning",
+            "Reranker",
+            "Trace",
+            "Rubric Eval"
+          ]
+        }
+      ]
+    }
+  ],
+  "open_source": [
+    {
+      "project": "open-eval-lab",
+      "role": "Contributor",
+      "scope": "评测适配与文档维护",
+      "bullets": [
+        {
+          "text": "提交并合入 2 个 PR，新增一个模型适配器与一组回归样例；角色按仓库公开记录写为 Contributor。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / GitHub PR 页面"
+        }
+      ],
+      "url": "https://github.com/example-agent/open-eval-lab"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Agent Trace Inspector",
+      "role": "个人项目｜0→1",
+      "scope": "从事件采集、会话还原到错误聚类的端到端观测工具",
+      "bullets": [
+        {
+          "text": "实现 OpenTelemetry 事件接入、跨轮次状态还原、tool-call 因果图与失败样本聚类，支持 HTML 单文件导出。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 项目 README 与提交记录"
+        }
+      ],
+      "url": "https://github.com/example-agent/agent-trace-inspector"
+    }
+  ],
+  "awards": [],
+  "skills": [
+    "Python",
+    "TypeScript",
+    "PyTorch",
+    "Ray",
+    "OpenTelemetry",
+    "PostgreSQL"
+  ]
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>阿酥式打招呼示例</title>
+  <style>
+    :root { --teal:#11a683; --ink:#191b1d; --muted:#92979d; --line:#eceef0; --panel:#f6f7f9; }
+    * { box-sizing:border-box; }
+    body { margin:0; width:760px; min-height:1420px; color:var(--ink); background:#e9edf0; font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    .phone { width:720px; min-height:1380px; margin:20px; overflow:hidden; border-radius:36px; background:#fff; box-shadow:0 20px 60px rgba(21,34,42,.2); }
+    .status { height:62px; display:flex; align-items:center; justify-content:space-between; padding:0 38px; font-size:22px; font-weight:700; }
+    .status .app { color:var(--teal); font-size:25px; }
+    .nav { display:grid; grid-template-columns:70px 1fr 90px; align-items:center; padding:18px 28px 23px; border-bottom:1px solid var(--line); }
+    .back { font-size:42px; font-weight:300; }
+    .job { text-align:center; }
+    .job strong { display:block; font-size:25px; }
+    .job span { color:#70757b; font-size:18px; }
+    .more { text-align:right; font-size:34px; letter-spacing:4px; }
+    .actions { display:grid; grid-template-columns:repeat(4,1fr); padding:22px 24px; border-bottom:12px solid var(--panel); }
+    .action { text-align:center; color:#60656a; font-size:18px; }
+    .action b { display:grid; place-items:center; width:42px; height:42px; margin:0 auto 7px; border:2px solid #aeb3b8; border-radius:11px; font-size:19px; color:#7b8186; }
+    .date { padding:25px; text-align:center; color:#b0b4b8; background:var(--panel); font-size:17px; }
+    .candidate { margin:22px 24px 12px; padding:22px; border:1px solid var(--line); border-radius:18px; box-shadow:0 5px 18px rgba(16,31,39,.06); }
+    .candidate-head { display:flex; gap:15px; align-items:center; }
+    .avatar { width:66px; height:66px; border-radius:50%; object-fit:cover; }
+    .candidate strong { font-size:23px; }
+    .candidate p { margin:6px 0 0; color:#747a80; font-size:17px; }
+    .facts { display:grid; gap:9px; margin-top:18px; padding-top:17px; border-top:1px solid var(--line); font-size:18px; }
+    .chat-row { display:grid; grid-template-columns:62px 1fr; gap:12px; align-items:end; margin:22px 25px 70px; }
+    .chat-avatar { width:58px; height:58px; border-radius:50%; object-fit:cover; }
+    .bubble { position:relative; padding:22px 24px; border-radius:20px 20px 20px 5px; background:#fff; border:1px solid #e9ebed; box-shadow:0 8px 22px rgba(12,30,39,.08); font-size:22px; line-height:1.68; }
+    .bubble strong { color:#0d8269; }
+    .tag { display:inline-block; margin:3px 2px; padding:2px 8px; border-radius:7px; background:#eaf7f3; color:#177963; font-size:18px; font-weight:650; }
+    .note { margin:0 28px 28px; padding:14px 18px; border-radius:12px; background:#fff8ed; color:#8b6233; font-size:16px; line-height:1.5; }
+  </style>
+</head>
+<body>
+  <main class="phone">
+    <div class="status"><span>17:47</span><span class="app">人才直聊</span><span>▮▮▮ ◉ 82</span></div>
+    <div class="nav">
+      <div class="back">‹</div>
+      <div class="job"><strong>AI Agent 算法工程师</strong><span>大模型应用 · Context Engineering</span></div>
+      <div class="more">•••</div>
+    </div>
+    <div class="actions">
+      <div class="action"><b>▤</b>求简历</div>
+      <div class="action"><b>⌁</b>换联系</div>
+      <div class="action"><b>□</b>约面试</div>
+      <div class="action"><b>×</b>不合适</div>
+    </div>
+    <div class="date">今天 17:42</div>
+    <section class="candidate">
+      <div class="candidate-head">
+        <img class="avatar" src="asu-circle.png" alt="头像">
+        <div><strong>示例候选人 · Agent / Context</strong><p>算法工程师｜多模态 → Agent Infra → Long-Horizon</p></div>
+      </div>
+      <div class="facts">
+        <span>🏫 国家“双一流” + 海外研究型大学 AI 方向</span>
+        <span>💼 大模型应用 / Search Agent / Harness</span>
+        <span>⚙️ SFT · GRPO · ReAct · AWQ · SGLang</span>
+      </div>
+    </section>
+    <div class="chat-row">
+      <img class="chat-avatar" src="asu-circle.png" alt="头像">
+      <div class="bubble">
+        您好！我是 AI / Agent 方向算法工程师，技术主线从
+        <span class="tag">MultiModal</span>
+        <span class="tag">NL2SQL</span>
+        <span class="tag">Search Agent</span>
+        一路延伸到
+        <span class="tag">Context / Memory / Harness</span>。
+        <br><br>
+        独立负责过从数据治理、Structured Short COT、SFT / GRPO 到 AWQ / SGLang Serving 的<strong>模块级 0→1 闭环</strong>，也做过 Fixed Workflow → ReAct 的策略架构演进，Scope 覆盖 Data / Model / Training / Serving / Agent / Eval。
+        <br><br>
+        看贵司岗位与我的方向比较匹配，方便发一份两页高密度技术履历与您交流吗？🙂
+      </div>
+    </div>
+    <div class="note">公开演示截图：所有身份、学校和经历均为泛化示例，不对应真实求职者。</div>
+  </main>
+</body>
+</html>
