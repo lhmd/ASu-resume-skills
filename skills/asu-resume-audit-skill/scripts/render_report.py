@@ -67,7 +67,6 @@ def build_pdf(data: dict[str, Any], output_path: Path) -> None:
         from reportlab.pdfbase import pdfmetrics
         from reportlab.pdfbase.cidfonts import UnicodeCIDFont
         from reportlab.platypus import (
-            KeepTogether,
             LongTable,
             PageBreak,
             Paragraph,
@@ -298,6 +297,8 @@ def build_pdf(data: dict[str, Any], output_path: Path) -> None:
     story.append(PageBreak())
     story.append(Paragraph("完整主张与证据矩阵", h2))
     for claim in claims:
+        if claim.get("page_break_before"):
+            story.append(PageBreak())
         evidence_for = "、".join(claim.get("evidence_for", [])) or "无"
         evidence_against = "、".join(claim.get("evidence_against", [])) or "无"
         steps = claim.get("verification_steps", [])
@@ -309,22 +310,22 @@ def build_pdf(data: dict[str, Any], output_path: Path) -> None:
             [Paragraph("分析", cell_small), Paragraph(ptext(claim.get("analysis")), cell)],
             [Paragraph("下一步", cell_small), Paragraph("<br/>".join("- " + ptext(x) for x in steps) or "无", cell)],
         ]
-        story.append(KeepTogether([
-            Table(block, colWidths=[27 * mm, 141 * mm], style=TableStyle([
-                ("BACKGROUND", (0, 0), (0, -1), palette["gray100"]),
-                ("BOX", (0, 0), (-1, -1), 0.6, palette["gray300"]),
-                ("INNERGRID", (0, 0), (-1, -1), 0.35, palette["gray300"]),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 6),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-                ("TOPPADDING", (0, 0), (-1, -1), 5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-            ])),
-            Spacer(1, 3 * mm),
+        claim_table = Table(block, colWidths=[27 * mm, 141 * mm], style=TableStyle([
+            ("BACKGROUND", (0, 0), (0, -1), palette["gray100"]),
+            ("BOX", (0, 0), (-1, -1), 0.6, palette["gray300"]),
+            ("INNERGRID", (0, 0), (-1, -1), 0.35, palette["gray300"]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+            ("TOPPADDING", (0, 0), (-1, -1), 5),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
         ]))
+        story.extend([claim_table, Spacer(1, 3 * mm)])
 
     story.append(Paragraph("识别到的包装与夸大模式", h2))
     for pattern in patterns:
+        if pattern.get("page_break_before"):
+            story.append(PageBreak())
         signals = "；".join(pattern.get("signals", [])) or "无"
         pattern_table = Table([
             [Paragraph(ptext(pattern.get("name")), h3)],
@@ -341,7 +342,7 @@ def build_pdf(data: dict[str, Any], output_path: Path) -> None:
             ("TOPPADDING", (0, 0), (-1, -1), 4),
             ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
         ]))
-        story.append(KeepTogether([pattern_table, Spacer(1, 3 * mm)]))
+        story.extend([pattern_table, Spacer(1, 3 * mm)])
 
     if timeline:
         story.append(Paragraph("时间线", h2))
@@ -382,7 +383,7 @@ def build_pdf(data: dict[str, Any], output_path: Path) -> None:
         ]
         if source.get("notes"):
             source_block.append(Paragraph(ptext(source.get("notes")), body))
-        story.append(KeepTogether(source_block))
+        story.extend(source_block)
 
     def decorate_page(canvas, document):
         canvas.saveState()

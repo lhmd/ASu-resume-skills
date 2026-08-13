@@ -15,6 +15,15 @@
 | `$asu-resume-skill` | 阿酥式履历生成 | 来源映射 JSON、自包含 HTML、A4 PDF、小红书配文 |
 | `$asu-resume-audit-skill` | 简历证据审计 | 原子主张、证据矩阵、夸大模式、HTML/PDF 审计报告 |
 
+## 成品示例
+
+| Skill | JSON 数据 | HTML 成品 | PDF 成品 |
+| --- | --- | --- | --- |
+| `$asu-resume-skill` | [resume-data.example.json](examples/resume-data.example.json) | [asu-resume-example.html](examples/asu-resume-example.html) | [asu-resume-example.pdf](examples/asu-resume-example.pdf) |
+| `$asu-resume-audit-skill` | [audit-report.example.json](examples/audit-report.example.json) | [asu-resume-audit-example.html](examples/asu-resume-audit-example.html) | [asu-resume-audit-example.pdf](examples/asu-resume-audit-example.pdf) |
+
+HTML 均为单文件自包含页面，下载后可直接用浏览器打开；PDF 为同一份 JSON 数据生成的 A4 版本。当前生成示例为 3 页高密度履历，覆盖 3 段经历、7 组核心项目、3 项开源贡献与 7 组技术沉淀；审计示例为 10 页完整报告，包含 16 条原子主张、15 项来源、6 类夸大模式与时间线。
+
 ## 安装
 
 把下面这段直接发给 Codex：
@@ -131,6 +140,10 @@ ASu-resume-skills/
 │   ├── asu-circle.png
 │   └── hr-intro-example.jpg
 ├── examples/
+│   ├── asu-resume-example.html
+│   ├── asu-resume-example.pdf
+│   ├── asu-resume-audit-example.html
+│   ├── asu-resume-audit-example.pdf
 │   ├── resume-data.example.json
 │   └── audit-report.example.json
 ├── THIRD_PARTY_LICENSES/

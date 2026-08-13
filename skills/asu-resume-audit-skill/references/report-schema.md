@@ -41,7 +41,8 @@
       "evidence_for": ["S-002"],
       "evidence_against": ["S-001"],
       "analysis": "说明真实事实锚点、扩大部分与最终结论。",
-      "verification_steps": ["要求提供正式 Maintainer 任命记录"]
+      "verification_steps": ["要求提供正式 Maintainer 任命记录"],
+      "page_break_before": false
     }
   ],
   "patterns": [
@@ -51,7 +52,8 @@
       "signals": ["核心作者措辞", "已合并工件有限"],
       "claim_ids": ["C-001"],
       "counter_evidence": "存在一个有意义的已合并 PR。",
-      "confidence": "medium"
+      "confidence": "medium",
+      "page_break_before": false
     }
   ],
   "timeline": [
@@ -105,3 +107,5 @@ high
 ```
 
 字段标识保持英文，所有用户可见内容使用中文。
+
+`claims[]` 与 `patterns[]` 可选使用 `page_break_before: true` 控制长报告的 A4 分页；它只影响 PDF，不改变 HTML 内容。

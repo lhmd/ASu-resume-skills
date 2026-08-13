@@ -1,28 +1,38 @@
 {
   "mode": "source_grounded",
-  "source_title": "匿名候选人经历材料（公开演示）",
+  "source_title": "林知序完整经历材料（公开演示）",
   "profile": {
     "name": "林知序（示例）",
-    "headline": "LLM 应用算法｜Agent Infrastructure｜Evaluation",
+    "headline": "Agent Infrastructure｜SFT & RL｜MultiModal｜Evaluation",
     "location": "中国 · 上海",
     "contacts": [
       {
         "label": "GitHub",
         "value": "example-agent",
         "url": "https://github.com/example-agent"
+      },
+      {
+        "label": "主页",
+        "value": "agent-lab.example.com",
+        "url": "https://example.com/agent-lab"
       }
     ]
   },
   "education": [
     {
       "institution": "南方理工大学",
-      "program": "省部共建高校｜卓越工程师教育培养计划",
+      "program": "省部共建高校｜卓越工程师教育培养计划｜新工科研究与实践项目",
       "degree": "计算机科学与技术 · 工学学士",
       "degree_awarder": "南方理工大学",
       "dates": "2021.09 - 2025.06",
       "bullets": [
         {
-          "text": "学校 Title 仅采用学校官网与教育主管部门公开表述，不把校际合作写成学位归属。",
+          "text": "主修机器学习、分布式系统、编译原理与数据库系统；连续三年参与智能软件工程实验室 Agent Systems 方向。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 成绩单与实验室经历"
+        },
+        {
+          "text": "学校 Title 仅采用学校官网与教育主管部门公开表述，不把校际合作、交换访问或实验室合作写成学位归属。",
           "verification": "source_grounded",
           "source_note": "公开演示材料 / 学校官网与教育主管部门页面"
         }
@@ -32,56 +42,456 @@
   "experience": [
     {
       "company": "星桥科技",
-      "team": "智能平台 · Agent 算法与基础设施",
+      "team": "AI4SE · Agent Scaling & Infrastructure",
       "dates": "2025.07 - 至今",
-      "brand": "blue",
+      "brand": "red",
       "tags": [
-        "Multi-Agent",
+        "SFT / RL",
+        "Agent Harness",
         "Context Engineering",
-        "Evaluation"
+        "SWE-Bench"
       ],
       "projects": [
         {
-          "name": "Research Agent",
-          "subtitle": "检索编排模块 Owner｜0→1 策略链路｜评测闭环",
+          "name": "AgentScaling for SFT & RL",
+          "subtitle": "轨迹合成模块 Owner｜0→1 多 Scaffold 数据管线｜训练-评测闭环",
           "background": [
             {
-              "text": "面向多跳研究任务，原链路存在检索轮次固定、证据覆盖不足和失败定位成本高的问题。",
+              "text": "单一模板生成的 Coding Agent 轨迹同质化明显，难以覆盖规划、工具误用、失败恢复与长程续跑等能力维度。",
               "verification": "user_attested",
-              "source_note": "匿名候选人经历材料 / Research Agent 章节"
+              "source_note": "公开演示材料 / AgentScaling 设计文档"
+            },
+            {
+              "text": "目标是在同一任务上生成多 Scaffold、多模型、多采样温度的异构轨迹，并保留可复现的环境、补丁和评测工件。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 数据生产方案"
             }
           ],
           "impact": [
             {
-              "text": "在固定 300 条回归集上，将证据覆盖率从 71.0% 提升至 82.3%，平均检索轮次从 5.4 降至 4.1。",
+              "text": "累计合成 180k 条 Micro Trajectory 与 42k 条 Long-horizon Trajectory，覆盖 11 类失败模式和 8 类工具链路。",
               "verification": "source_grounded",
-              "source_note": "匿名候选人经历材料 / 2026-06 离线评测表",
+              "source_note": "公开演示材料 / 2026-06 数据生产看板"
+            },
+            {
+              "text": "固定 1,200 题回归集上，训练后模型的任务通过率从 23.8% 提升至 31.6%，平均无效工具调用从 4.7 次降至 3.1 次。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 2026-06 SFT 对比评测",
               "metric": {
-                "baseline": 71.0,
-                "result": 82.3,
+                "baseline": 23.8,
+                "result": 31.6,
                 "unit": "%",
-                "window": "2026-06 固定 300 条回归集"
+                "window": "2026-06 固定 1,200 题回归集"
+              }
+            },
+            {
+              "text": "通过容器快照复用、仓库依赖缓存与分层超时，将单条有效轨迹平均生产成本降低 27.4%。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 成本归因表",
+              "metric": {
+                "baseline": 1.0,
+                "result": 0.726,
+                "unit": "normalized cost",
+                "window": "2026-Q2"
               }
             }
           ],
           "responsibilities": [
             {
-              "text": "作为检索编排模块 Owner，从 0→1 设计 Query Planning、并行 Search、Evidence Rerank 与 Citation Check 四阶段链路；负责接口协议、失败分型、灰度策略和回归门禁。",
+              "text": "作为轨迹合成模块 Owner，从 0→1 设计 CLI -> Scaffold Registry -> Relay Runner -> Sandbox -> Verifier -> Exporter 六阶段管线，定义统一 task schema、artifact contract 与 retry policy。",
               "verification": "user_attested",
-              "source_note": "匿名候选人经历材料 / 设计文档与代码所有权说明"
+              "source_note": "公开演示材料 / 模块责任人与代码所有权记录"
             },
             {
-              "text": "将单 Agent 串行执行演进为 Planner / Searcher / Verifier 协作拓扑，并以 trace schema 串联运行时观测、离线回放与 Rubric Eval。",
+              "text": "设计 Multi-Scaffold 采样：Plan-and-Execute、ReAct、Manager-Worker、Critic-Refine 与 Test-driven 五类 Agent 拓扑共享环境层，但隔离 system prompt、memory 与 tool budget。",
               "verification": "source_grounded",
-              "source_note": "匿名候选人经历材料 / 架构图与评测说明"
+              "source_note": "公开演示材料 / Scaffold Registry 设计"
+            },
+            {
+              "text": "实现 Docker/Firecracker 双运行时、仓库还原、依赖预热、patch capture、checkpoint resume 与失败回收，覆盖 clone/build/test/edit/export 全生命周期。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Runner 与 Sandbox 实现"
+            },
+            {
+              "text": "建立 Trajectory Quality Gate：按 Outcome、Effective Action Ratio、Patch Validity、Token Efficiency 与 Failure Onset 组合过滤，向 SFT/RL 训练侧输出分层数据。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 数据门禁与训练接口"
             }
           ],
           "keywords": [
-            "ReAct",
+            "SFT",
+            "GRPO",
+            "Multi-Scaffold",
+            "SWE-Bench",
+            "Docker",
+            "Firecracker",
+            "Checkpoint",
+            "Patch Validity",
+            "Effective Action Ratio",
+            "Trajectory Synthesis",
+            "Quality Gate"
+          ]
+        },
+        {
+          "name": "Agent Tracer & Rubric Evaluation",
+          "subtitle": "评测诊断模块 Owner｜Evidence-to-Action Gap｜Wash Pipeline",
+          "background": [
+            {
+              "text": "传统 pass/fail 指标无法解释 Agent 在何处偏离有效路径，也无法区分规划错误、工具错误、环境错误和补丁质量问题。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / Agent Tracer 需求背景"
+            }
+          ],
+          "impact": [
+            {
+              "text": "在 5 个模型、4 套 Scaffold、9,600 条轨迹上完成 Rubric Eval，人工复核一致率 86.4%，高风险失败样本召回率 91.2%。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Rubric 标注抽检报告",
+              "metric": {
+                "baseline": 0,
+                "result": 91.2,
+                "unit": "% high-risk failure recall",
+                "window": "2026-05 至 2026-06"
+              }
+            },
+            {
+              "text": "将失败定位从人工逐轮阅读缩短为平均 2.8 分钟/条，支持训练前洗数、版本回归和模型间行为对齐分析。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 评测平台操作日志"
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "从 0→1 定义 Trace Schema，统一 USER/ASSISTANT/TOOL 消息、observation、artifact、patch、test result 与 checkpoint，并构建跨模型 Adapter。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / Trace Schema 设计评审"
+            },
+            {
+              "text": "实现 LLM-as-Judge + Rule Check 双路评测，将 Planning、Tool Selection、Error Recovery、Patch Quality 与 Evidence Usage 拆成 29 个原子 Rubric。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Rubric 定义与评测代码"
+            },
+            {
+              "text": "提出 Failure Onset 定位：从结果失败向前回溯首个不可逆错误，并以 Evidence-to-Action Gap 区分“已观察但未行动”和“根本未观察”。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Failure Onset 方法说明"
+            },
+            {
+              "text": "搭建 Wash -> Diagnose -> Export 流水线，支持多维 Top-K、去重、hard-negative 筛选、Rubric 证据片段导出与训练数据回写。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Wash Pipeline 实现"
+            }
+          ],
+          "keywords": [
+            "LLM-as-Judge",
+            "Rubric Eval",
+            "Failure Onset",
+            "Evidence-to-Action Gap",
+            "Trace Schema",
+            "Hard Negative",
+            "Wash Pipeline",
+            "Inter-Annotator Agreement",
+            "Error Taxonomy"
+          ]
+        },
+        {
+          "name": "Long-horizon Context Continuation",
+          "subtitle": "Context Engine 共建者｜Micro Compaction｜Checkpoint Resume",
+          "background": [
+            {
+              "text": "长程 Coding Agent 在 180k token 后出现上下文拥塞、重复探索和工具结果遗失，需要在不中断任务的前提下压缩并续跑。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / 长程任务故障统计"
+            }
+          ],
+          "impact": [
+            {
+              "text": "在 240 个超长程任务上，将可持续运行窗口从约 180k token 扩展到 430k token，中断恢复成功率达到 88.7%。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Long-horizon 回归评测",
+              "metric": {
+                "baseline": 180000,
+                "result": 430000,
+                "unit": "token",
+                "window": "2026-Q2 240 个长程任务"
+              }
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "共建 Write -> Select -> Compress -> Isolate -> Resume 上下文链路：区分原始消息、工具工件、摘要记忆、任务状态和失败报告五类载荷。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Context Engine 架构图"
+            },
+            {
+              "text": "实现 Micro Compaction 与 Full Compaction 双阈值策略，在保留 active plan、open todos、latest patch 与 test evidence 的同时裁剪冗余观察。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Compaction 策略实现"
+            },
+            {
+              "text": "负责 Checkpoint Resume 的状态一致性验证、悬空 ToolCall 修复与跨模型 handoff 回放，不将该共建职责表述为整个平台 Owner。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / Context Engine 分工记录"
+            }
+          ],
+          "keywords": [
+            "Context Engineering",
+            "Micro Compaction",
+            "Full Compaction",
+            "Checkpoint Resume",
+            "Memory",
+            "Tool Artifact",
+            "Handoff",
+            "State Consistency"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "云岚视频",
+      "team": "直播与电商 · Agent 产品算法",
+      "dates": "2025.01 - 2025.06",
+      "brand": "blue",
+      "tags": [
+        "Agentic Workflow",
+        "GenUI",
+        "EC Analysis",
+        "Function Calling"
+      ],
+      "projects": [
+        {
+          "name": "直播间智能搭建平台",
+          "subtitle": "Workflow 策略模块 Owner｜意图到 UI 的端到端生成",
+          "background": [
+            {
+              "text": "直播运营配置依赖人工拖拽组件和填写规则，页面搭建耗时长，跨活动复用成本高。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / 直播搭建需求文档"
+            }
+          ],
+          "impact": [
+            {
+              "text": "上线后覆盖约 46% 的新建与改版页面，单页首版搭建时间从 2-4 小时降低至 15-30 分钟。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 直播搭建产品看板",
+              "metric": {
+                "baseline": 180,
+                "result": 22.5,
+                "unit": "minutes median",
+                "window": "2025-05 上线后四周"
+              }
+            },
+            {
+              "text": "支持 14 个基础组件与 38 类动作绑定，生成结果通过 Schema、DSL 与 Runtime 三层门禁后进入预览。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 组件与动作注册表"
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "作为 Workflow 策略模块 Owner，从 0→1 设计 Prompt Router -> Intent Planner -> Task Graph -> XML Patch -> Preview Renderer 链路。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / Workflow 责任分工与设计评审"
+            },
+            {
+              "text": "构建 UI/Flow/Bind 三类任务规划器，将自然语言意图、页面 UIDL 与组件能力表映射为结构化 task list。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Planner 实现与任务 Schema"
+            },
+            {
+              "text": "实现 Promise.allSettled 并行调度、XML Patch 差量更新、JSX/XML/UIDL 多级兜底与失败回滚。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Controller 与 Patch Service"
+            },
+            {
+              "text": "建立 Component Schema 与 Action Binding 训练语料，为后续 Semi/Auto Design 组件库奠定可检索能力描述。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 组件语料与检索服务"
+            }
+          ],
+          "keywords": [
+            "GenUI",
+            "UIDL",
+            "Task Graph",
+            "XML Patch",
+            "Function Calling",
+            "Schema Registry",
+            "Action Binding",
+            "Promise.allSettled",
+            "Fallback"
+          ]
+        },
+        {
+          "name": "EC-Monica 电商经营分析 Agent",
+          "subtitle": "分析编排模块 Owner｜指标归因｜报告生成",
+          "background": [
+            {
+              "text": "面向产品、运营和研发的电商分析需求，需要同时处理指标查询、业务归因与需求文档解析，并生成可复用报告。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / EC-Monica 立项材料"
+            }
+          ],
+          "impact": [
+            {
+              "text": "月均被调用 600+ 次，报告类任务占比约 55%，需求归因解析约 45%；单次分析报告生成从 1-2 小时缩短至 5-15 分钟。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 2025-05 服务调用与任务分类报表",
+              "metric": {
+                "baseline": 90,
+                "result": 10,
+                "unit": "minutes median",
+                "window": "2025-05 月均 600+ 次调用"
+              }
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "从 0→1 建立 Intent -> Query Plan -> Tool Registry -> Data Fetch -> Analysis -> Report 六阶段 Agentic Workflow，支持意图歧义与数据缺失回退。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / EC-Monica Workflow 设计"
+            },
+            {
+              "text": "设计 FunctionSchema 动态注册与 Loop Executor，注入数据表口径、业务词典、历史报告 Few-shot 和分析模版。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Tool Registry 与 Context 设计"
+            },
+            {
+              "text": "实现超时重试、SQL/接口错误分类、结果完整性检查与无数据 Fallback，避免模型在缺少证据时生成确定性归因。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 错误处理与报告门禁"
+            }
+          ],
+          "keywords": [
+            "Intent Recognition",
+            "Tool Registry",
+            "FunctionSchema",
             "Query Planning",
-            "Reranker",
-            "Trace",
-            "Rubric Eval"
+            "Business Dictionary",
+            "Few-shot",
+            "Report Generation",
+            "Data Fallback"
+          ]
+        }
+      ]
+    },
+    {
+      "company": "极昼智能",
+      "team": "多模态内容平台 · AIGC",
+      "dates": "2024.06 - 2024.12",
+      "brand": "green",
+      "tags": [
+        "MultiModal",
+        "CLIP",
+        "Diffusion",
+        "ReAct"
+      ],
+      "projects": [
+        {
+          "name": "Thumbnail AI",
+          "subtitle": "个人项目｜0→1 多平台封面生成 SaaS",
+          "background": [
+            {
+              "text": "面向 YouTube、Instagram、TikTok 与小红书创作者，将标题、素材与风格词转为可编辑的多尺寸封面。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 产品主页与代码仓库"
+            }
+          ],
+          "impact": [
+            {
+              "text": "累计注册用户 2,080，付费用户 214，月活约 540，累计生成封面 15,600 张；访问到付费转化率 10.3%。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 2024-12 产品数据库快照",
+              "metric": {
+                "numerator": 214,
+                "denominator": 2080,
+                "displayed_percent": 10.3,
+                "window": "截至 2024-12"
+              }
+            },
+            {
+              "text": "用户从上传素材到生成首版平均耗时 92 秒，支持 6 个平台、18 种尺寸和 24 套风格模版。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 产品日志与模板配置"
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "独立完成 Next.js 前端、支付订阅、对象存储、任务队列与图像生成服务，打通标题/素材 -> Prompt Planner -> Layout -> Diffusion -> Preview 链路。",
+              "verification": "user_attested",
+              "source_note": "公开演示材料 / 项目提交记录与部署说明"
+            },
+            {
+              "text": "使用 CLIP 提取参考图视觉特征，结合品牌色、人物主体、文字安全区与平台比例生成结构化 Prompt。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 图像生成与布局代码"
+            },
+            {
+              "text": "实现免费额度、订阅、订单、重试、内容审核和失败退款闭环，并对转化漏斗做事件埋点。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 支付与事件系统"
+            }
+          ],
+          "keywords": [
+            "Next.js",
+            "Stripe",
+            "Object Storage",
+            "Task Queue",
+            "CLIP",
+            "Diffusion",
+            "Prompt Planner",
+            "Layout Engine",
+            "Funnel Analytics"
+          ]
+        },
+        {
+          "name": "Krene-Art 角色设定 Agent",
+          "subtitle": "搜索-理解-生成闭环｜参考图一致性｜角色卡片",
+          "background": [
+            {
+              "text": "面向游戏与二维内容创作者，从角色文字设定和参考图出发生成风格一致的角色卡片与多视图草图。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Krene-Art 产品说明"
+            }
+          ],
+          "impact": [
+            {
+              "text": "累计用户 1,260，付费用户 168，生成角色卡 4,300+ 张；单角色从参考检索到首版平均 7.2 分钟。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Krene-Art 数据快照",
+              "metric": {
+                "numerator": 168,
+                "denominator": 1260,
+                "displayed_percent": 13.3,
+                "window": "截至 2024-12"
+              }
+            }
+          ],
+          "responsibilities": [
+            {
+              "text": "设计 Search ReAct：拆解造型、配色、气质与时代关键词，检索参考图后进行清晰度、构图与视觉维度筛选。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Search Agent 设计"
+            },
+            {
+              "text": "以 CLIP + Vision Encoder 提取五维视觉特征，与用户设定拼接为结构化 Prompt，再调用 Diffusion 生成多候选角色图。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / 视觉理解与生成链路"
+            },
+            {
+              "text": "构建 Critic Loop，按轮廓、配色、服装、年龄感与参考图一致性打分，低分样本自动调整 Prompt 并重采样。",
+              "verification": "source_grounded",
+              "source_note": "公开演示材料 / Critic Rubric 与采样策略"
+            }
+          ],
+          "keywords": [
+            "Search ReAct",
+            "CLIP",
+            "Vision Encoder",
+            "Structured Prompt",
+            "Diffusion",
+            "Critic Loop",
+            "Reference Consistency",
+            "Multi-view"
           ]
         }
       ]
@@ -89,41 +499,189 @@
   ],
   "open_source": [
     {
-      "project": "open-eval-lab",
+      "project": "deer-harness",
       "role": "Contributor",
-      "scope": "评测适配与文档维护",
+      "scope": "Agent Harness、前端调试台与文档维护；项目累计 7.6k Stars",
       "bullets": [
         {
-          "text": "提交并合入 2 个 PR，新增一个模型适配器与一组回归样例；角色按仓库公开记录写为 Contributor。",
+          "text": "提交 9 个 PR，其中 6 个合入：新增 tool-call 调试面板、checkpoint 恢复提示、两组回归测试与部署文档；不将 Contributor 描述为核心作者。",
           "verification": "source_grounded",
-          "source_note": "公开演示材料 / GitHub PR 页面"
+          "source_note": "公开演示材料 / GitHub merged PR 搜索"
         }
       ],
-      "url": "https://github.com/example-agent/open-eval-lab"
+      "url": "https://github.com/example-agent/deer-harness"
+    },
+    {
+      "project": "eval-trace-core",
+      "role": "Maintainer",
+      "scope": "Trace Schema、Rubric Runner 与版本发布",
+      "bullets": [
+        {
+          "text": "仓库维护者列表与 CODEOWNERS 均记录 Maintainer 身份；负责 0.4-0.7 四个版本的 Schema 迁移、发布说明和兼容性评审。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / MAINTAINERS、CODEOWNERS 与 Release 页面"
+        }
+      ],
+      "url": "https://github.com/example-agent/eval-trace-core"
+    },
+    {
+      "project": "fast-transport",
+      "role": "Contributor",
+      "scope": "Python Binding 与序列化 Benchmark",
+      "bullets": [
+        {
+          "text": "合入 3 个 PR，修复 Python Binding 的 buffer lifetime 问题并补充跨语言 benchmark；角色限定为 Contributor。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / GitHub PR 与 benchmark 提交"
+        }
+      ],
+      "url": "https://github.com/example-agent/fast-transport"
     }
   ],
   "projects": [
     {
-      "name": "Agent Trace Inspector",
-      "role": "个人项目｜0→1",
-      "scope": "从事件采集、会话还原到错误聚类的端到端观测工具",
+      "name": "Agent Systems Notes",
+      "role": "技术内容与课程共建",
+      "scope": "Agent Harness、Context Engineering、SFT/RL 与 Evaluation 系列教程",
       "bullets": [
         {
-          "text": "实现 OpenTelemetry 事件接入、跨轮次状态还原、tool-call 因果图与失败样本聚类，支持 HTML 单文件导出。",
+          "text": "整理 42 篇技术笔记、18 个可运行 Demo 和 6 次公开分享，全部示例绑定对应仓库提交、论文或官方文档。",
           "verification": "source_grounded",
-          "source_note": "公开演示材料 / 项目 README 与提交记录"
+          "source_note": "公开演示材料 / 内容索引与演示仓库"
         }
       ],
-      "url": "https://github.com/example-agent/agent-trace-inspector"
+      "url": "https://example.com/agent-systems-notes"
+    },
+    {
+      "name": "Open Benchmark Service",
+      "role": "项目发起者｜0→1",
+      "scope": "SWE、Search 与 Tool-use 三类 Benchmark 的统一容器化评测服务",
+      "bullets": [
+        {
+          "text": "实现 CreateSession -> Restore Repo -> Run Agent -> Diff -> Test -> Export 标准协议，支持 5 个模型 Provider 与 4 类 Agent Scaffold。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 项目 README 与服务代码"
+        }
+      ],
+      "url": "https://github.com/example-agent/open-benchmark-service"
+    },
+    {
+      "name": "Agent Visual Trace Studio",
+      "role": "项目 Owner｜可观测与诊断",
+      "scope": "把多轮 Agent 轨迹转为可筛选、可回放、可归因的前端诊断工作台",
+      "bullets": [
+        {
+          "text": "实现 Session Timeline、Tool-call DAG、Patch Diff、Token/Latency Flame Graph 与 Failure Onset 高亮，支持 20 万级消息的分片加载。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / Trace Studio 仓库与性能报告"
+        },
+        {
+          "text": "打通 OpenTelemetry -> ClickHouse -> Trace Query DSL -> React Virtual List，支持按模型、Scaffold、Rubric、仓库与失败类型交叉过滤。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 数据接入与查询架构"
+        }
+      ],
+      "url": "https://github.com/example-agent/agent-visual-trace"
+    },
+    {
+      "name": "SWE-Bench Adapter Pack",
+      "role": "核心维护者",
+      "scope": "统一仓库准备、测试发现、Patch 应用与结果导出的 Benchmark Adapter",
+      "bullets": [
+        {
+          "text": "覆盖 Python、Java、TypeScript 与 Go 四类仓库，抽象 RepoSpec、TestSpec、PatchSpec 与 ArtifactSpec，减少不同 Benchmark 的胶水重复。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / Adapter Pack README 与类型定义"
+        },
+        {
+          "text": "加入 hermetic build、依赖镜像指纹、flaky test 重跑和污染检测，使同一 patch 的跨节点复跑一致率提升至 97.6%。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 跨节点复跑报告"
+        }
+      ],
+      "url": "https://github.com/example-agent/swe-bench-adapter-pack"
+    },
+    {
+      "name": "Context Compression Playground",
+      "role": "实验平台发起者｜0→1",
+      "scope": "面向长程 Agent 的 Selective Memory、Compaction 与 Resume 策略对比平台",
+      "bullets": [
+        {
+          "text": "内置 Sliding Window、Summary Memory、Entity Memory、Task-state Snapshot 与 Retrieval Memory 五类基线，统一衡量 Recall、Drift 与续跑成功率。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / Playground 实验配置"
+        },
+        {
+          "text": "提供 token budget sweep、context ablation、needle replay 和跨模型 handoff，对摘要丢失、状态冲突与悬空工具调用进行可视化对比。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 实验脚本与可视化页面"
+        }
+      ],
+      "url": "https://github.com/example-agent/context-compression-playground"
+    },
+    {
+      "name": "Agent Engineering 公开分享",
+      "role": "讲师与内容作者",
+      "scope": "从 Agent Demo 到可训练、可评测、可续跑系统的工程实践",
+      "bullets": [
+        {
+          "text": "完成《Harness 不是 Prompt》《从 Pass/Fail 到 Failure Onset》《Long-horizon Context Continuation》三场公开分享与配套 Demo。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 活动页面与录像索引"
+        },
+        {
+          "text": "课程代码包含 12 个渐进实验：Tool Registry、Trace Schema、Rubric Judge、Wash Pipeline、Checkpoint 与 Compaction。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 课程实验仓库"
+        }
+      ],
+      "url": "https://example.com/agent-engineering-talks"
+    },
+    {
+      "name": "论文、专利与技术沉淀",
+      "role": "共同作者",
+      "scope": "Agent 轨迹诊断、长上下文压缩和工具调用可靠性",
+      "bullets": [
+        {
+          "text": "共同完成 1 篇 workshop paper、2 项发明专利申请与 4 篇内部技术 RFC；个人贡献限定为实验平台、评测方法和工程实现。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 投稿回执、专利受理通知与 RFC 作者页"
+        },
+        {
+          "text": "不使用“首创”“世界第一”等缺少比较全集的最高级，公开材料按正式作者顺序和已公开状态呈现。",
+          "verification": "source_grounded",
+          "source_note": "公开演示材料 / 论文、专利与公开状态核对表"
+        }
+      ],
+      "url": "https://example.com/publications"
     }
   ],
-  "awards": [],
+  "awards": [
+    {
+      "name": "全国大学生软件创新赛 · 全国一等奖",
+      "date": "2024.08"
+    },
+    {
+      "name": "Open Source Summer · 优秀结项",
+      "date": "2024.10"
+    },
+    {
+      "name": "校级优秀毕业设计",
+      "date": "2025.06"
+    }
+  ],
   "skills": [
     "Python",
     "TypeScript",
     "PyTorch",
     "Ray",
+    "vLLM",
+    "SGLang",
+    "Docker",
+    "Firecracker",
     "OpenTelemetry",
-    "PostgreSQL"
+    "PostgreSQL",
+    "Redis",
+    "Next.js"
   ]
 }

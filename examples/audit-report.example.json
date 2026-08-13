@@ -1,133 +1,633 @@
 {
   "metadata": {
-    "title": "匿名技术履历证据审计",
+    "title": "高密度技术履历证据审计",
     "subject": "林知序（公开演示）",
-    "generated_at": "2026-08-13T12:00:00+08:00",
-    "scope": "学校 Title、项目角色、0→1 范围与指标口径",
+    "generated_at": "2026-08-13T13:45:00+08:00",
+    "scope": "教育 Title、Owner/0→1、Agent Infra、开源角色、产品指标、奖项与时间线",
     "analyst": "asu-resume-audit-skill",
     "disclaimer": "本报告只说明演示材料中的证据关系，不评价人格，也不构成法律认定。"
   },
   "summary": {
-    "conclusion": "示例履历对开源角色的描述与公开记录一致；Research Agent 的模块级 Owner 有内部材料支持，但现有公开证据不足以外推为整个 Agent 平台负责人；指标需要保留评测集和时间窗口。",
+    "conclusion": "这份高密度履历的教育标签、开源 Contributor/Maintainer 身份和多数技术产物存在明确锚点；主要风险集中在内部 Owner 任命缺少独立确认、团队训练收益向个人模块归因、直播搭建“0→1”与既有原型时间线冲突，以及产品用户指标只能由内部快照支持。",
     "highest_risk": [
-      "C-002"
+      "C-002",
+      "C-004",
+      "C-008",
+      "C-011"
     ],
     "limitations": [
-      "演示报告不包含真实公司的代码所有权、绩效系统或人事记录。"
+      "无法访问真实公司的代码所有权、绩效系统、实验平台和人事记录。",
+      "演示中的内部看板与设计文档只能证明材料之间一致，不能替代雇主独立确认。",
+      "示例域名和候选人均用于展示审计结构，不对应现实求职者。"
     ]
   },
   "sources": [
     {
       "id": "S-001",
-      "title": "匿名候选人项目设计材料",
-      "url": "https://example.com/research-agent-design",
-      "type": "user_provided_document",
-      "publisher": "匿名候选人",
+      "title": "南方理工大学学校概况与教育主管部门名单",
+      "url": "https://example.com/university-profile",
+      "type": "official_record",
+      "publisher": "学校官网与教育主管部门",
       "accessed_at": "2026-08-13",
-      "reliability": "B",
-      "notes": "支持模块边界、接口职责与 0→1 时间线，无法独立证明公司级角色。"
+      "reliability": "A",
+      "notes": "支持省部共建、卓越工程师教育培养计划与新工科项目等机构标签。"
     },
     {
       "id": "S-002",
-      "title": "open-eval-lab 合并记录",
-      "url": "https://github.com/example-agent/open-eval-lab/pulls?q=is%3Apr+is%3Amerged",
-      "type": "official_record",
-      "publisher": "GitHub 项目仓库",
-      "accessed_at": "2026-08-13",
-      "reliability": "A",
-      "notes": "显示 2 个已合并 PR，不显示 Maintainer 或 Core Author 任命。"
-    },
-    {
-      "id": "S-003",
-      "title": "Research Agent 固定回归集评测表",
-      "url": "https://example.com/research-agent-eval",
+      "title": "匿名学历与成绩材料",
+      "url": "https://example.com/education-record",
       "type": "user_provided_document",
       "publisher": "匿名候选人",
       "accessed_at": "2026-08-13",
       "reliability": "B",
-      "notes": "记录 300 条样本、评测时间窗口和基线/结果值。"
+      "notes": "支持学校、专业、学位授予方、修读课程和就读时间。"
+    },
+    {
+      "id": "S-003",
+      "title": "AgentScaling 模块责任矩阵与设计评审",
+      "url": "https://example.com/agent-scaling-ownership",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持轨迹合成模块接口、交付责任和主要设计者，无法独立证明正式 Owner 任命。"
+    },
+    {
+      "id": "S-004",
+      "title": "AgentScaling 数据生产与成本看板",
+      "url": "https://example.com/trajectory-dashboard",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "记录 Micro/Long-horizon 轨迹数量、失败类别和标准化成本。"
+    },
+    {
+      "id": "S-005",
+      "title": "SFT 与 Rubric Eval 固定回归报告",
+      "url": "https://example.com/sft-eval-report",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "含 1,200 题训练评测和 9,600 条轨迹 Rubric 抽检结果，未提供可公开复跑环境。"
+    },
+    {
+      "id": "S-006",
+      "title": "Context Engine 设计文档与分工记录",
+      "url": "https://example.com/context-engine-design",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持 Context Engine 共建、Compaction 和 Resume 子模块职责，不支持整个平台 Owner。"
+    },
+    {
+      "id": "S-007",
+      "title": "直播搭建平台责任分工与上线看板",
+      "url": "https://example.com/live-builder-dashboard",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持 Workflow 策略模块责任、组件数量、页面覆盖率和搭建时间。"
+    },
+    {
+      "id": "S-008",
+      "title": "直播搭建旧版规则原型提交记录",
+      "url": "https://example.com/live-builder-prototype",
+      "type": "official_record",
+      "publisher": "内部代码仓库镜像",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "显示候选人加入前已存在基于规则的页面搭建原型；可支持架构重写，但反驳产品从绝对零开始。"
+    },
+    {
+      "id": "S-009",
+      "title": "EC-Monica 服务调用与任务分类报表",
+      "url": "https://example.com/ec-monica-metrics",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持月调用量、任务分类和报告生成时长，不支持业务收入归因。"
+    },
+    {
+      "id": "S-010",
+      "title": "deer-harness PR、Stars 与贡献者记录",
+      "url": "https://github.com/example-agent/deer-harness/pulls?q=is%3Apr+author%3Aexample-agent",
+      "type": "repository_record",
+      "publisher": "GitHub 项目仓库",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "可核验 9 个 PR、6 个合入和仓库 7.6k Stars；未显示核心作者或 Maintainer 身份。"
+    },
+    {
+      "id": "S-011",
+      "title": "eval-trace-core MAINTAINERS、CODEOWNERS 与 Release",
+      "url": "https://github.com/example-agent/eval-trace-core",
+      "type": "repository_record",
+      "publisher": "GitHub 项目仓库",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "正式文件记录 Maintainer 与代码所有权，并显示四个版本的发布活动。"
+    },
+    {
+      "id": "S-012",
+      "title": "fast-transport 合并 PR 与 Benchmark 提交",
+      "url": "https://github.com/example-agent/fast-transport/pulls?q=is%3Apr+is%3Amerged",
+      "type": "repository_record",
+      "publisher": "GitHub 项目仓库",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "支持三个合并 PR、Python Binding 修复和跨语言 benchmark。"
+    },
+    {
+      "id": "S-013",
+      "title": "Thumbnail AI 数据库快照、支付报表与事件日志",
+      "url": "https://example.com/thumbnail-product-metrics",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持注册、付费、月活、生成量与首版耗时；缺少第三方支付平台原始导出。"
+    },
+    {
+      "id": "S-014",
+      "title": "Krene-Art 产品快照与生成日志",
+      "url": "https://example.com/krene-art-metrics",
+      "type": "user_provided_document",
+      "publisher": "匿名候选人",
+      "accessed_at": "2026-08-13",
+      "reliability": "B",
+      "notes": "支持用户、付费、生成量和平均耗时，无法独立确认测试账号清理口径。"
+    },
+    {
+      "id": "S-015",
+      "title": "赛事获奖名单与开源结项公示",
+      "url": "https://example.com/awards-official-list",
+      "type": "official_record",
+      "publisher": "赛事组委会与开源活动官网",
+      "accessed_at": "2026-08-13",
+      "reliability": "A",
+      "notes": "支持全国一等奖和优秀结项；校级毕业设计由学校公示单独确认。"
     }
   ],
   "claims": [
     {
       "id": "C-001",
-      "category": "open_source_role",
-      "resume_text": "open-eval-lab Contributor，合入 2 个 PR。",
-      "normalized_claim": "候选人在该仓库以 Contributor 身份合入 2 个 PR。",
+      "category": "education_branding",
+      "resume_text": "南方理工大学｜省部共建高校｜卓越工程师教育培养计划｜新工科研究与实践项目。",
+      "normalized_claim": "学校具有列出的三项官方机构或建设标签。",
       "status": "corroborated",
       "risk": "low",
       "confidence": "high",
       "evidence_for": [
+        "S-001",
         "S-002"
       ],
       "evidence_against": [],
-      "analysis": "公开合并记录支持贡献数量；履历没有把 Contributor 升格为 Maintainer 或核心作者。",
+      "analysis": "学校官网、主管部门名单与学历材料共同支持学校身份和 Title；履历没有把合作关系写成第二学位。",
       "verification_steps": []
     },
     {
       "id": "C-002",
       "category": "project_role",
-      "resume_text": "Research Agent 检索编排模块 Owner，从 0→1 设计四阶段链路。",
-      "normalized_claim": "候选人独立或主要负责 Research Agent 的检索编排模块，并从无到有建立该模块。",
+      "resume_text": "AgentScaling 轨迹合成模块 Owner，从 0→1 设计六阶段数据生产管线。",
+      "normalized_claim": "候选人被正式或事实上授权为轨迹合成模块 Owner，并主要负责该模块从无到有建立。",
       "status": "partially_corroborated",
       "risk": "high",
-      "confidence": "medium",
-      "evidence_for": [
-        "S-001"
-      ],
-      "evidence_against": [],
-      "analysis": "设计材料支持检索编排模块的接口与交付责任；尚无证据支持把范围扩大到完整 Research Agent 或公司级 Agent 平台。",
-      "verification_steps": [
-        "补充代码所有权、评审记录与模块责任人列表。",
-        "在履历中持续保留“检索编排模块”范围限定。"
-      ]
-    },
-    {
-      "id": "C-003",
-      "category": "metric",
-      "resume_text": "证据覆盖率从 71.0% 提升至 82.3%。",
-      "normalized_claim": "在 2026-06 固定 300 条回归集上，证据覆盖率由 71.0% 提升至 82.3%。",
-      "status": "corroborated",
-      "risk": "medium",
       "confidence": "medium",
       "evidence_for": [
         "S-003"
       ],
       "evidence_against": [],
-      "analysis": "评测表支持数值、样本量与时间窗口；由于来源是候选人提供的内部材料，公开读者无法独立复算。",
+      "analysis": "责任矩阵和设计评审支持主要设计与接口责任，但证据来自候选人提供的内部材料，缺少主管确认或正式 Owner 名单。作用域必须保持在“轨迹合成模块”。",
       "verification_steps": [
-        "保留评测集版本、计算脚本和原始结果快照。"
+        "补充模块责任人列表、设计评审参会人与代码所有权记录。",
+        "避免省略“轨迹合成模块”而外推为完整训练平台 Owner。"
       ]
+    },
+    {
+      "id": "C-003",
+      "category": "production_scale",
+      "resume_text": "累计合成 180k 条 Micro Trajectory 与 42k 条 Long-horizon Trajectory。",
+      "normalized_claim": "数据生产系统累计产出 222k 条符合履历定义的轨迹。",
+      "status": "partially_corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-004"
+      ],
+      "evidence_against": [],
+      "analysis": "看板支持数量，但需确认去重、失败样本、重采样和有效轨迹的统计口径；该规模是系统产出，不应暗示候选人手工完成全部轨迹。",
+      "verification_steps": [
+        "提供 count SQL、去重键和有效轨迹定义。"
+      ]
+    },
+    {
+      "id": "C-004",
+      "category": "causal_metric",
+      "resume_text": "训练后模型任务通过率从 23.8% 提升至 31.6%。",
+      "normalized_claim": "候选人负责的轨迹合成工作导致固定 1,200 题上的任务通过率提升 7.8 个百分点。",
+      "status": "partially_corroborated",
+      "risk": "high",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-004",
+        "S-005"
+      ],
+      "evidence_against": [],
+      "analysis": "评测报告支持前后数值，数据看板支持训练数据来源；仍有模型版本、训练超参和其他数据变化等共同变量，不能把全部提升单独归因于候选人的模块。",
+      "verification_steps": [
+        "补充仅替换轨迹数据的控制实验与训练配置 diff。",
+        "正文使用“训练后模型”而非“我将模型提升”。"
+      ]
+    },
+    {
+      "id": "C-005",
+      "page_break_before": true,
+      "category": "evaluation_metric",
+      "resume_text": "Rubric Eval 高风险失败样本召回率 91.2%，人工复核一致率 86.4%。",
+      "normalized_claim": "在 9,600 条轨迹的指定抽检方案下，评测系统达到两个所述指标。",
+      "status": "corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-005"
+      ],
+      "evidence_against": [],
+      "analysis": "报告包含样本规模、Rubric 和抽检结果；公开版本仍应明确高风险失败定义和人工标注基准。",
+      "verification_steps": [
+        "保留抽样脚本、混淆矩阵和标注一致性计算方式。"
+      ]
+    },
+    {
+      "id": "C-006",
+      "category": "project_role",
+      "resume_text": "Long-horizon Context Continuation：Context Engine 共建者。",
+      "normalized_claim": "候选人参与 Context Engine 的 Compaction、Resume 和状态一致性子模块，但不是完整平台 Owner。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-006"
+      ],
+      "evidence_against": [],
+      "analysis": "设计文档与分工记录支持共建者角色，履历主动限制了范围并否定整个平台 Owner，角色强度与证据匹配。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-007",
+      "category": "long_context_metric",
+      "resume_text": "可持续运行窗口从约 180k token 扩展到 430k token，中断恢复成功率 88.7%。",
+      "normalized_claim": "在 240 个指定长程任务上，系统达到所述上下文窗口和恢复成功率。",
+      "status": "partially_corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-006"
+      ],
+      "evidence_against": [],
+      "analysis": "内部回归表支持结果，但“可持续运行窗口”不是模型原生 context window，必须保持为 Agent 系统通过压缩和续跑得到的工程指标。",
+      "verification_steps": [
+        "在公开文案中保留“通过 Compaction/Resume”限定。"
+      ]
+    },
+    {
+      "id": "C-008",
+      "category": "zero_to_one_timeline",
+      "resume_text": "直播间智能搭建 Workflow 策略模块 Owner，从 0→1 设计端到端链路。",
+      "normalized_claim": "候选人加入前不存在直播页面自动搭建能力，候选人从绝对零开始建立该产品。",
+      "status": "contradicted",
+      "risk": "high",
+      "confidence": "high",
+      "evidence_for": [
+        "S-007"
+      ],
+      "evidence_against": [
+        "S-008"
+      ],
+      "analysis": "候选人确实负责新的 LLM Workflow 策略模块，但加入前已有规则原型。若“0→1”指新策略模块可成立，若指整个直播搭建产品则与提交时间线直接冲突。",
+      "verification_steps": [
+        "改写为“从规则原型到 LLM Workflow 的架构重构”。",
+        "保留“Workflow 策略模块”而不使用产品级 0→1。"
+      ]
+    },
+    {
+      "id": "C-009",
+      "page_break_before": true,
+      "category": "product_metric",
+      "resume_text": "上线后覆盖约 46% 的新建与改版页面，搭建时间从 2-4 小时降低至 15-30 分钟。",
+      "normalized_claim": "指定上线窗口内，Agent 生成覆盖 46% 目标页面并显著缩短首版搭建耗时。",
+      "status": "partially_corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-007"
+      ],
+      "evidence_against": [],
+      "analysis": "看板支持覆盖率和时长区间，但需确认覆盖分母、人工返工时间和页面复杂度分层；结果属于产品与团队，不是个人单独产出。",
+      "verification_steps": [
+        "补充覆盖分母与复杂度分桶。",
+        "把个人贡献限定为 Workflow 策略模块。"
+      ]
+    },
+    {
+      "id": "C-010",
+      "category": "service_usage",
+      "resume_text": "EC-Monica 月均调用 600+ 次，单次报告生成从 1-2 小时缩短至 5-15 分钟。",
+      "normalized_claim": "EC-Monica 在指定月份达到所述调用量与报告时长变化。",
+      "status": "corroborated",
+      "risk": "medium",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-009"
+      ],
+      "evidence_against": [],
+      "analysis": "服务报表支持数字，履历没有将调用次数等同于独立用户或收入；仍需注明“调用”而不是“用户”。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-011",
+      "category": "product_users",
+      "resume_text": "Thumbnail AI 注册用户 2,080，付费用户 214，访问到付费转化率 10.3%。",
+      "normalized_claim": "截至 2024-12，产品存在 2,080 个去重注册用户和 214 个真实付费用户，转化率为 10.3%。",
+      "status": "partially_corroborated",
+      "risk": "high",
+      "confidence": "medium",
+      "evidence_for": [
+        "S-013"
+      ],
+      "evidence_against": [],
+      "analysis": "分子分母算术一致，数据库与事件日志支持数量；缺少第三方支付导出、退款和测试账号排除规则，因此只能部分证实。",
+      "verification_steps": [
+        "提供支付平台订单导出并扣除退款、测试与赠送账号。",
+        "明确定义“访问到付费”中的访问分母为何使用注册用户。"
+      ]
+    },
+    {
+      "id": "C-012",
+      "page_break_before": true,
+      "category": "open_source_role",
+      "resume_text": "deer-harness Contributor，提交 9 个 PR，其中 6 个合入；项目累计 7.6k Stars。",
+      "normalized_claim": "候选人在该仓库以 Contributor 身份合入 6 个 PR，仓库当前约 7.6k Stars。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "high",
+      "evidence_for": [
+        "S-010"
+      ],
+      "evidence_against": [],
+      "analysis": "PR 与 Stars 均可由仓库记录核验；履历明确使用 Contributor，没有把仓库热度转化为核心作者身份。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-013",
+      "category": "open_source_role",
+      "resume_text": "eval-trace-core Maintainer，负责 0.4-0.7 四个版本。",
+      "normalized_claim": "候选人具有正式 Maintainer/CODEOWNER 身份，并参与四个版本发布。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "high",
+      "evidence_for": [
+        "S-011"
+      ],
+      "evidence_against": [],
+      "analysis": "MAINTAINERS、CODEOWNERS 和 Release 记录提供正式且可重复核验的角色证据。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-014",
+      "category": "open_source_contribution",
+      "resume_text": "fast-transport 合入 3 个 PR，修复 Python Binding buffer lifetime 并补充 Benchmark。",
+      "normalized_claim": "候选人的三个指定 PR 已合入且包含所述代码范围。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "high",
+      "evidence_for": [
+        "S-012"
+      ],
+      "evidence_against": [],
+      "analysis": "合并状态、文件 diff 与 benchmark 提交均支持，角色仍限定为 Contributor。",
+      "verification_steps": []
+    },
+    {
+      "id": "C-015",
+      "category": "product_users",
+      "resume_text": "Krene-Art 累计用户 1,260，付费用户 168，生成角色卡 4,300+ 张。",
+      "normalized_claim": "产品快照中的用户、付费与生成量均代表去重真实用户和成功任务。",
+      "status": "unverifiable",
+      "risk": "medium",
+      "confidence": "low",
+      "evidence_for": [
+        "S-014"
+      ],
+      "evidence_against": [],
+      "analysis": "当前只有候选人提供的单份快照，无法判断测试账号、重复账号、退款和失败任务口径，需要原始表或第三方支付数据才能核验。",
+      "verification_steps": [
+        "补充用户去重 SQL、成功任务状态定义与支付平台原始导出。"
+      ]
+    },
+    {
+      "id": "C-016",
+      "category": "award",
+      "resume_text": "全国大学生软件创新赛全国一等奖、Open Source Summer 优秀结项、校级优秀毕业设计。",
+      "normalized_claim": "候选人获得列出的三项奖项或荣誉。",
+      "status": "corroborated",
+      "risk": "low",
+      "confidence": "high",
+      "evidence_for": [
+        "S-015"
+      ],
+      "evidence_against": [],
+      "analysis": "官方名单支持奖项名称与时间；履历没有增加“最年轻”“唯一”或排名第一等无法穷举的最高级。",
+      "verification_steps": []
     }
   ],
   "patterns": [
     {
-      "name": "Scope 外扩风险",
-      "description": "模块级 Owner 若省略限定词，容易被理解为完整产品或平台 Owner。",
+      "name": "模块 Owner 向平台 Owner 外扩风险",
+      "page_break_before": true,
+      "description": "多个模块级 Owner 连续出现时，读者容易把局部闭环理解为整个平台领导职责。",
       "signals": [
-        "Owner 强角色词",
-        "项目名称大于证据覆盖的模块边界"
+        "轨迹合成模块 Owner",
+        "评测诊断模块 Owner",
+        "Workflow 策略模块 Owner"
       ],
       "claim_ids": [
-        "C-002"
+        "C-002",
+        "C-008"
       ],
-      "counter_evidence": "原句明确保留了“检索编排模块”限定，因此当前属于可控风险而非直接矛盾。",
+      "counter_evidence": "履历多数标题保留了模块限定，Context Engine 还主动写为共建者，因此不是无边界的全局 Owner 叙事。",
+      "confidence": "high"
+    },
+    {
+      "name": "0→1 起点重定义",
+      "description": "把新算法模块或架构重写描述为整个产品从零开始。",
+      "signals": [
+        "从 0→1",
+        "加入前已有规则原型",
+        "新 Workflow 与旧产品并存"
+      ],
+      "claim_ids": [
+        "C-008"
+      ],
+      "counter_evidence": "新的 LLM Workflow 策略模块确实可被视为模块级 0→1。",
+      "confidence": "high"
+    },
+    {
+      "name": "团队训练收益向个人模块归因",
+      "description": "模型任务通过率同时受训练超参、基座版本、数据组合和推理配置影响，不能只归因于轨迹合成负责人。",
+      "signals": [
+        "前后通过率",
+        "缺少单变量控制实验",
+        "个人职责与团队训练结果并列"
+      ],
+      "claim_ids": [
+        "C-004"
+      ],
+      "counter_evidence": "数据生产看板和训练报告建立了候选人模块与训练数据之间的直接链路。",
+      "confidence": "medium"
+    },
+    {
+      "name": "项目热度品牌转移风险",
+      "page_break_before": true,
+      "description": "仓库 Stars 可以说明项目影响力，但不能证明个人是项目核心作者。",
+      "signals": [
+        "7.6k Stars",
+        "个人贡献与项目热度同一行"
+      ],
+      "claim_ids": [
+        "C-012"
+      ],
+      "counter_evidence": "履历明确写 Contributor，并单独列出 6 个合并 PR，没有使用核心作者措辞。",
+      "confidence": "medium"
+    },
+    {
+      "name": "产品指标伪精确风险",
+      "description": "内部数据库快照提供精确数字，但退款、测试账号、重复用户和时间窗口可能改变含义。",
+      "signals": [
+        "2,080 注册用户",
+        "214 付费用户",
+        "10.3% 转化率",
+        "缺少第三方支付导出"
+      ],
+      "claim_ids": [
+        "C-011",
+        "C-015"
+      ],
+      "counter_evidence": "Thumbnail AI 的分子分母算术一致，并存在数据库、事件和支付报表三类内部材料。",
+      "confidence": "medium"
+    },
+    {
+      "name": "系统指标与模型原生能力混淆",
+      "description": "通过 Compaction 和 Resume 获得的可持续运行 token 不等于基座模型原生上下文窗口。",
+      "signals": [
+        "430k token",
+        "Context Engine",
+        "Checkpoint Resume"
+      ],
+      "claim_ids": [
+        "C-007"
+      ],
+      "counter_evidence": "履历将该指标放在 Context Continuation 项目下，没有直接称为模型 context length。",
       "confidence": "medium"
     }
   ],
   "timeline": [
     {
-      "date": "2026-06",
-      "title": "固定回归集评测",
-      "detail": "在 300 条样本上记录证据覆盖率和平均检索轮次。",
+      "date": "2024.06",
+      "title": "Thumbnail AI 开始开发",
+      "detail": "个人项目提交记录显示前端、生成服务和支付链路开始建立。",
       "source_ids": [
-        "S-003"
+        "S-013"
+      ]
+    },
+    {
+      "date": "2024.08",
+      "title": "软件创新赛全国一等奖",
+      "detail": "官方获奖名单记录候选人与参赛项目。",
+      "source_ids": [
+        "S-015"
+      ]
+    },
+    {
+      "date": "2024.12",
+      "title": "直播搭建规则原型存在",
+      "detail": "候选人加入前，旧仓库已存在规则配置和页面生成原型。",
+      "source_ids": [
+        "S-008"
+      ]
+    },
+    {
+      "date": "2025.01",
+      "title": "加入直播与电商 Agent 团队",
+      "detail": "开始负责新的 LLM Workflow 策略模块和 EC-Monica 分析编排。",
+      "source_ids": [
+        "S-007",
+        "S-009"
+      ]
+    },
+    {
+      "date": "2025.05",
+      "title": "直播 Workflow 上线",
+      "detail": "看板开始记录页面覆盖率、搭建时间与组件注册数量。",
+      "source_ids": [
+        "S-007"
+      ]
+    },
+    {
+      "date": "2025.07",
+      "title": "加入 AI4SE Agent Scaling",
+      "detail": "责任矩阵记录轨迹合成、评测诊断与 Context Engine 三类工作。",
+      "source_ids": [
+        "S-003",
+        "S-006"
+      ]
+    },
+    {
+      "date": "2025.11",
+      "title": "eval-trace-core 0.4 发布",
+      "detail": "Maintainer 与 CODEOWNER 身份进入公开仓库记录。",
+      "source_ids": [
+        "S-011"
+      ]
+    },
+    {
+      "date": "2026.03",
+      "title": "AgentScaling 轨迹生产扩容",
+      "detail": "数据看板开始按 Scaffold、失败类型和有效性门禁分层统计。",
+      "source_ids": [
+        "S-004"
+      ]
+    },
+    {
+      "date": "2026.05",
+      "title": "Rubric Eval 大规模抽检",
+      "detail": "在 9,600 条轨迹上完成模型评审与人工复核。",
+      "source_ids": [
+        "S-005"
+      ]
+    },
+    {
+      "date": "2026.06",
+      "title": "SFT 固定回归评测",
+      "detail": "1,200 题回归集记录任务通过率、工具调用和成本变化。",
+      "source_ids": [
+        "S-004",
+        "S-005"
       ]
     }
   ],
   "next_steps": [
-    "公开版本保留模块边界，不使用平台级 Owner 表述。",
-    "对指标附评测集规模、时间窗口和计算口径。",
-    "开源角色继续使用仓库公开可证实的 Contributor。"
+    "将所有 Owner 表述持续限定在轨迹合成、评测诊断或 Workflow 策略模块。",
+    "把直播搭建“0→1”改写为从规则原型到 LLM Workflow 的架构重构。",
+    "对训练收益补充模型版本、训练超参、数据配方与单变量控制实验。",
+    "为 222k 轨迹规模提供去重键、有效性定义和统计 SQL。",
+    "为产品用户与付费指标补第三方支付导出、退款和测试账号排除规则。",
+    "保留 Contributor/Maintainer 的正式角色证据，不用项目 Stars 替代个人贡献。",
+    "明确 430k token 是 Agent 系统续跑窗口，不是基座模型原生上下文。",
+    "对每个公开指标附样本量、分母、时间窗口和计算脚本。"
   ]
 }
