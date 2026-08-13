@@ -55,9 +55,9 @@ $asu-resume-skill
 
 ### 打招呼示例
 
-参考招聘聊天截图的长气泡表达，但使用不包含真实求职者信息的原创演示界面：
+原始招聘平台打招呼截图：
 
-<img src="assets/greeting-example.png" width="390" alt="阿酥式打招呼示例">
+<img src="assets/hr-intro-example.jpg" width="390" alt="阿酥式打招呼示例">
 
 ## `$asu-resume-audit-skill`：证据优先审计
 
@@ -129,21 +129,16 @@ ASu-resume-skills/
 │       └── scripts/
 ├── assets/
 │   ├── asu-circle.png
-│   ├── greeting-example.html
-│   └── greeting-example.png
+│   └── hr-intro-example.jpg
 ├── examples/
 │   ├── resume-data.example.json
 │   └── audit-report.example.json
+├── THIRD_PARTY_LICENSES/
+│   └── Hisn00w-ASu-skills-LICENSE
 ├── LICENSE
 └── README.md
 ```
 
-## 素材与关系说明
-
-头像 `assets/asu-circle.png` 取自 [Hisn00w/ASu-skills](https://github.com/Hisn00w/ASu-skills) 的公开 assets，依据其 MIT License 使用。聊天示例为本仓库重新制作，不复用原截图中的个人信息。
-
-本仓库是社区制作的非官方工具，与头像人物、相关博主、其雇主及参考仓库作者不存在隶属、授权、背书或合作关系。
-
 ## 开源协议
 
-代码以 [MIT License](LICENSE) 发布。头像素材的来源和关系说明见上一节。
+代码以 [MIT License](LICENSE) 发布。
