@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -24,6 +25,30 @@ ALLOWED_CONFIDENCE = {"low", "medium", "high"}
 
 def fail(errors: list[str], message: str) -> None:
     errors.append(message)
+
+
+def validate_metric(claim: dict, errors: list[str]) -> None:
+    metric = claim.get("metric")
+    if metric is None:
+        return
+
+    cid = claim.get("id", "<无编号>")
+    if not isinstance(metric, dict):
+        fail(errors, f"{cid} metric 必须是对象")
+        return
+
+    ratio_keys = {"numerator", "denominator", "displayed_percent"}
+    if not ratio_keys <= set(metric):
+        return
+
+    try:
+        expected = float(metric["numerator"]) / float(metric["denominator"]) * 100
+        displayed = float(metric["displayed_percent"])
+    except (TypeError, ValueError, ZeroDivisionError):
+        fail(errors, f"{cid} metric 指标字段无法计算")
+    else:
+        if not math.isclose(expected, displayed, abs_tol=0.5):
+            fail(errors, f"{cid} metric 百分比与分子分母不一致")
 
 
 def validate_data(data: dict, errors: list[str]) -> None:
@@ -66,6 +91,7 @@ def validate_data(data: dict, errors: list[str]) -> None:
             fail(errors, f"{cid} risk 非法：{claim.get('risk')}")
         if claim.get("confidence") not in ALLOWED_CONFIDENCE:
             fail(errors, f"{cid} confidence 非法：{claim.get('confidence')}")
+        validate_metric(claim, errors)
         for sid in claim.get("evidence_for", []) + claim.get("evidence_against", []):
             if sid not in source_ids:
                 fail(errors, f"{cid} 引用了不存在的 source id：{sid}")

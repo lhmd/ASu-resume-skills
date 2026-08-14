@@ -40,6 +40,11 @@
       "confidence": "high",
       "evidence_for": ["S-002"],
       "evidence_against": ["S-001"],
+      "metric": {
+        "numerator": 200,
+        "denominator": 2000,
+        "displayed_percent": 10
+      },
       "analysis": "说明真实事实锚点、扩大部分与最终结论。",
       "verification_steps": ["要求提供正式 Maintainer 任命记录"],
       "page_break_before": false
@@ -109,5 +114,9 @@ high
 ```
 
 字段标识保持英文，所有用户可见内容使用中文。
+
+Claim 可选使用 `metric` 对象记录明确的比例口径。只有同时提供 `numerator`、`denominator` 和 `displayed_percent` 时，校验器才会按 `numerator / denominator * 100` 重算，并允许 0.5 个百分点的舍入误差。缺少任一字段时不会推断；分母为零或字段不可转换为数字会导致校验失败。
+
+通过或失败的比例校验仅说明已提供数字之间的关系，不能单独证明候选人存在虚假陈述。可能存在未披露分母时，应在 Claim 的分析和报告限制中说明。
 
 `claims[]` 与 `patterns[]` 可选使用 `page_break_before: true` 控制长报告的 A4 分页；它只影响 PDF，不改变 HTML 内容。
