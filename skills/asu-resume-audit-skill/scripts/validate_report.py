@@ -8,6 +8,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 ALLOWED_STATUSES = {
@@ -43,6 +44,13 @@ def validate_data(data: dict, errors: list[str]) -> None:
     source_ids = {s.get("id") for s in sources if s.get("id")}
     if len(source_ids) != len(sources):
         fail(errors, "source id 缺失或重复")
+    for source in sources:
+        sid = source.get("id", "<无编号>")
+        url = source.get("url")
+        if url:
+            parsed = urlparse(str(url))
+            if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+                fail(errors, f"{sid} URL 必须使用 http 或 https：{url}")
     claim_ids = {c.get("id") for c in claims if c.get("id")}
     if len(claim_ids) != len(claims):
         fail(errors, "claim id 缺失或重复")

@@ -163,6 +163,14 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--gray-3
     if (text !== undefined && text !== null) node.textContent = String(text);
     return node;
   }
+  function safeUrl(value) {
+    try {
+      const url = new URL(value);
+      return ["http:", "https:"].includes(url.protocol) ? url.href : null;
+    } catch (_) {
+      return null;
+    }
+  }
   function section(title, note) {
     const s = el("section");
     const head = el("div", "section-head");
@@ -304,8 +312,9 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--gray-3
   sources.forEach(s => {
     const item = el("div", "source");
     const top = el("div", "source-top");
-    const title = s.url ? el("a", "", s.id + " · " + s.title) : el("strong", "", s.id + " · " + s.title);
-    if (s.url) { title.href = s.url; title.target = "_blank"; title.rel = "noreferrer"; }
+    const sourceUrl = safeUrl(s.url);
+    const title = sourceUrl ? el("a", "", s.id + " · " + s.title) : el("strong", "", s.id + " · " + s.title);
+    if (sourceUrl) { title.href = sourceUrl; title.target = "_blank"; title.rel = "noopener noreferrer"; }
     top.appendChild(title);
     top.appendChild(el("span", "badge", "等级 " + (s.reliability || "?")));
     item.appendChild(top);
